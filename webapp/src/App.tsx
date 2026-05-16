@@ -5,6 +5,7 @@ import TradesList from './components/TradesList'
 import MasterToggle from './components/MasterToggle'
 import ManualDock from './components/ManualDock'
 import SettingsTabs from './components/SettingsTabs'
+import SettingsPanel from './components/SettingsPanel'
 import BrokerProfile from './components/BrokerProfile'
 import AppShell from './components/AppShell'
 
@@ -19,6 +20,7 @@ export default function App() {
         <TradesList />
         <ManualDock />
         <SettingsTabs />
+        <SettingsPanel />
         <BrokerProfile />
       </main>
     </AppShell>

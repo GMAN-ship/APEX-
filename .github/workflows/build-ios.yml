@@ -1,0 +1,39 @@
+name: Build iOS (skeleton)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    env:
+      CLOUD_PRIVATE_KEY: ${{ secrets.IOS_PRIVATE_KEY }} # user must set
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build webapp
+        working-directory: webapp
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install Capacitor iOS
+        working-directory: webapp
+        run: |
+          npm install @capacitor/cli @capacitor/core --save
+          npx cap add ios || true
+          npx cap sync ios
+
+      - name: Open Xcode build (requires signing setup)
+        working-directory: webapp/ios
+        run: |
+          echo "This workflow requires code signing configuration. Configure secrets and certificates to perform an automated iOS build."
