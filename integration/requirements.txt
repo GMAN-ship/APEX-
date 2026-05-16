@@ -1,0 +1,4 @@
+requests==2.31.0
+python-dotenv==1.0.0
+# Optional if running actual MT5 code on VPS
+# MetaTrader5==5.0.39

@@ -1,0 +1,30 @@
+name: Generate PDF
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install OS deps for WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libcairo2 libgdk-pixbuf2.0-0
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install weasyprint
+      - name: Generate PDF
+        run: python3 tools/generate_pdf.py
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ghost_Master_PDF
+          path: docs/Ghost_Master_APK_Production_Blueprint.pdf
