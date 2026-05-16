@@ -1,0 +1,6 @@
+{
+  "appId": "com.apex.ea",
+  "appName": "APEX EA",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

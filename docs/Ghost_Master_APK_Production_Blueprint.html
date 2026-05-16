@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghost-Master Terminal — APK Production Blueprint</title>
+  <style>
+    @page { size: A4; margin: 18mm 15mm; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #e2e8f0; background-color: #0b0f19; margin: 0; padding: 18px; font-size: 10pt; line-height: 1.5; }
+    .header-banner { background: linear-gradient(135deg,#1e1b4b 0%,#311042 100%); border:1px solid #3730a3; border-radius:8px; padding:20px; margin-bottom:20px }
+    h1 { font-size:18pt; font-weight:700; color:#f8fafc; margin:0 0 8px 0; text-transform:uppercase }
+    .subtitle { font-size:10pt; color:#a5b4fc; margin:0 }
+    h2 { font-size:12pt; font-weight:600; color:#38bdf8; border-left:4px solid #38bdf8; padding-left:10px; margin-top:22px; margin-bottom:12px }
+    p { margin:0 0 12px 0; color:#94a3b8 }
+    .highlight-box, .warning-box { border-radius:6px; padding:12px 15px; margin-bottom:15px }
+    .highlight-box { background:#111827; border:1px solid #1f2937; border-left:4px solid #10b981; color:#e2e8f0 }
+    .warning-box { background:#1c1917; border:1px solid #2e2a24; border-left:4px solid #f59e0b; color:#fcd34d }
+    .code-container { background:#030712; border:1px solid #1f2937; border-radius:6px; padding:15px; margin:15px 0; font-family:monospace; color:#34d399; font-size:9pt; white-space:pre-wrap }
+    .step-list { margin:0 0 20px 0; padding-left:20px }
+    .step-list li { margin-bottom:8px; color:#cbd5e1 }
+    table { width:100%; border-collapse:collapse; margin:15px 0 }
+    th { background:#1e293b; color:#f8fafc; text-align:left; padding:8px 12px; font-size:9pt; border:1px solid #334155 }
+    td { padding:8px 12px; font-size:9pt; color:#cbd5e1; border:1px solid #334155; background:#0f172a }
+  </style>
+</head>
+<body>
+  <div class="header-banner">
+    <h1>Ghost-Master Terminal</h1>
+    <div class="subtitle">Complete Production Blueprint: AI Prompts & Native Android APK Export Guide</div>
+  </div>
+
+  <p>To turn your Lovable / Supabase / MT5 trading dashboard into a downloadable Android <strong>.apk</strong>, use a two-tier approach: prepare the web assets for native wrapping, then compile via a cloud or local builder (Capacitor / Cordova / Flutter Webview).</p>
+
+  <div class="highlight-box">
+    <p><strong>Architecture Concept:</strong> Treat the Lovable project as a production PWA/SPA and bundle the compiled static assets into a native wrapper to gain native capabilities like push, wake locks, and native distribution.</p>
+  </div>
+
+  <h2>Phase 1: Production Build Master Prompt (run inside Lovable)</h2>
+  <p>Before compiling, run accessibility and mobile-optimization passes: touch target sizing, viewport rules, offline fallbacks, and asset packaging readiness.</p>
+
+  <div class="code-container">Act as a Lead Mobile PWA Architect. Freeze code for an Android APK export and ensure:
+
+1. TOUCH & VIEWPORT OPTIMIZATION: Ensure all actionable controls are >=48px target. Replace scrollbars with native momentum scrolling and disable double-tap zoom.
+
+2. ASSET PACKAGING: Produce a single static output folder (/dist or /build) with relative paths and bundled SVG assets.
+
+3. OFFLINE STANDBY: Provide cached metrics and block order execution while offline; show a clear reconnect modal.</div>
+
+  <h2>Phase 2: Android APK Compilation Blueprint</h2>
+  <p>Choose a compilation method:</p>
+
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Required</th><th>Best Suited For</th><th>Build Speed</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Cloud Build</strong></td><td>Git + VoltBuilder / CodeMagic</td><td>No local Android Studio</td><td>3–5 min</td></tr>
+      <tr><td><strong>Local Capacitor</strong></td><td>Node.js + Android Studio</td><td>Full native control</td><td>~10 min</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Method A: Cloud Compilation (prompt for cloud builder)</h2>
+  <div class="code-container">Generate a production config.xml / voltbuilder.json with:
+- package: com.ghostmaster.terminal.app
+- name: Ghost-Master Terminal
+- version: 1.0.0
+- orientation: portrait
+- permissions: network, wake-lock, notifications
+Bundle /dist and zip for the cloud compiler.</div>
+
+  <div class="warning-box"><p><strong>Deployment Note:</strong> Upload the /dist zip to VoltBuilder/CodeMagic to receive an APK.</p></div>
+
+  <h2>Method B: Local CLI (Capacitor)</h2>
+  <div class="code-container">Bash script outline:
+1. npm install @capacitor/core @capacitor/cli
+2. configure capacitor.config.json (webDir -> /dist)
+3. npx cap add android
+4. npx cap open android (then Build -> Build APK(s))</div>
+
+  <h2>Phase 3: Installation Verification</h2>
+  <ul class="step-list">
+    <li><strong>Enable Install Unknown Apps</strong> on the Android device.</li>
+    <li><strong>Bypass Play Protect</strong> if necessary (Install Anyway).</li>
+    <li><strong>Verify Wake Lock</strong> by running the engine for 15 minutes and confirming live metric sync.</li>
+  </ul>
+
+  <p style="color:#94a3b8; font-size:9pt; margin-top:18px">Lovable project link: https://lovable.dev/projects/730efb52-6dca-444c-adc8-feb7e914a04e</p>
+</body>
+</html>
