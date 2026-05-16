@@ -1,6 +1,12 @@
 {
-  "appId": "com.apex.ea",
-  "appName": "APEX EA",
+  "appId": "com.ghostmaster.terminal",
+  "appName": "Ghost-Master Terminal",
   "webDir": "dist",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "android": {
+    "buildOptions": {
+      "minSdkVersion": 24,
+      "targetSdkVersion": 34
+    }
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "name": "ghostmaster-desktop",
+  "version": "0.1.0",
+  "description": "Desktop wrapper for Ghost-Master Terminal",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish=never"
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.ghostmaster.terminal.desktop",
+    "productName": "Ghost-Master Terminal",
+    "files": [
+      "**/*",
+      "../webapp/dist/**"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": ["nsis"]
+    }
+  }
+}
