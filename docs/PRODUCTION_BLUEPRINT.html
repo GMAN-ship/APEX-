@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ghost-Master Terminal - Production Blueprint</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #e2e8f0;
+            background-color: #0b0f19;
+            margin: 0;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .header-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+            border: 1px solid #3730a3;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 13px;
+            color: #a5b4fc;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #38bdf8;
+            border-left: 4px solid #38bdf8;
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            margin: 0 0 12px 0;
+            color: #94a3b8;
+        }
+        
+        .highlight-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-left: 4px solid #10b981;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: #e2e8f0;
+        }
+        
+        .warning-box {
+            background-color: #1c1917;
+            border: 1px solid #2e2a24;
+            border-left: 4px solid #f59e0b;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .warning-box p {
+            margin: 0;
+            color: #fcd34d;
+        }
+        
+        .code-container {
+            background-color: #030712;
+            border: 1px solid #1f2937;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            color: #34d399;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+        
+        .step-list {
+            margin: 0 0 20px 0;
+            padding-left: 20px;
+        }
+        
+        .step-list li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+        
+        .step-list strong {
+            color: #f8fafc;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        
+        th {
+            background-color: #1e293b;
+            color: #f8fafc;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #334155;
+        }
+        
+        td {
+            padding: 10px;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+        }
+        
+        code {
+            background-color: #1f2937;
+            color: #34d399;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-banner">
+        <h1>Ghost-Master Terminal</h1>
+        <div class="subtitle">Complete Production Blueprint: AI Prompts & Native Android APK Export Guide</div>
+    </div>
+
+    <p>To turn your <strong>Lovable / Supabase / MT5 Trading Terminal</strong> into a tangible, downloadable Android <code>.apk</code> file that runs perfectly on any phone, you need a two-tier approach.</p>
+
+    <div class="highlight-box">
+        <p><strong>Architecture Concept:</strong> Your application behaves as a production-grade interface mapped into a native Android wrapper engine.</p>
+    </div>
+
+    <h2>Two-Tier Approach</h2>
+    <ol class="step-list">
+        <li><strong>Tier 1 - Web Application:</strong> React/Vite web app with Supabase real-time backend and MT5 integration</li>
+        <li><strong>Tier 2 - Native Wrapper:</strong> Capacitor bridges your web app into native Android APK</li>
+    </ol>
+
+    <h2>Build Process</h2>
+    <div class="code-container">
+cd webapp
+npm install
+npm run build
+npm install @capacitor/core @capacitor/cli
+npx cap init "APEX EA" com.apex.ea --web-dir=dist
+npx cap add android
+npx cap copy android
+cd android
+./gradlew assembleDebug
+    </div>
+
+    <h2>Automated GitHub Actions</h2>
+    <p>Your project now includes a complete CI/CD pipeline that:</p>
+    <ul class="step-list">
+        <li><strong>Automatically builds APK</strong> on every push to main/develop</li>
+        <li><strong>Uploads artifacts</strong> to GitHub Actions for download</li>
+        <li><strong>Creates releases</strong> when you tag a commit</li>
+        <li><strong>Signs and optimizes</strong> the APK for distribution</li>
+    </ul>
+
+    <div class="warning-box">
+        <p><strong>⚠️ Important:</strong> Each build produces a <code>.apk</code> file ready for installation on Android devices. No PDF export needed—your app IS the product.</p>
+    </div>
+
+    <h2>Installation on Device</h2>
+    <div class="code-container">
+# Connect device via USB with Developer Mode enabled
+adb install app-debug.apk
+
+# Or scan QR code from GitHub release
+    </div>
+
+    <h2>Release Workflow</h2>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Command</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Create Release</td>
+            <td><code>git tag v1.0.0</code></td>
+            <td>GitHub Actions builds APK</td>
+        </tr>
+        <tr>
+            <td>Push Tag</td>
+            <td><code>git push origin v1.0.0</code></td>
+            <td>Release created with APK attached</td>
+        </tr>
+        <tr>
+            <td>Download</td>
+            <td>GitHub Releases page</td>
+            <td>APK ready for distribution</td>
+        </tr>
+    </table>
+
+    <h2>Next Steps</h2>
+    <ol class="step-list">
+        <li><strong>Check GitHub Actions:</strong> Visit Actions tab to monitor builds</li>
+        <li><strong>Download APK:</strong> Get from artifacts or releases page</li>
+        <li><strong>Test on Device:</strong> Install and validate functionality</li>
+        <li><strong>Create Release:</strong> Tag commit to publish official version</li>
+        <li><strong>Monitor Performance:</strong> Use mobile app to test MT5 integration</li>
+    </ol>
+
+    <div class="highlight-box">
+        <p><strong>✓ Your production APK pipeline is live and ready to use.</strong></p>
+    </div>
+
+</body>
+</html>
