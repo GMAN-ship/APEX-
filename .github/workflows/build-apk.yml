@@ -38,18 +38,22 @@ jobs:
 
       - name: Install webapp dependencies
         working-directory: webapp
-        run: npm install
+        run: npm ci
 
       - name: Build web assets
         working-directory: webapp
         run: npm run build
 
-      - name: Install Capacitor and create Android project
+      - name: Ensure Android platform is added
         working-directory: webapp
         run: |
-          npm install @capacitor/core @capacitor/cli --save
-          npx cap init "APEX EA" com.apex.ea --web-dir=dist
-          npx cap add android
+          # Capacitor deps are in package.json; install them and add android platform non-interactively
+          npm ci
+          if [ ! -d android ]; then
+            npx cap add android || true
+          else
+            echo "android platform already present"
+          fi
 
       - name: Copy web assets to Android project
         working-directory: webapp
